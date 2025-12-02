@@ -1,0 +1,127 @@
+usermircroservice
+productmircoservice
+
+list of user who purchs more than 2 products
+
+
+
+
+
+
+usermircroservice
+@RestController
+@RequestMapping("/user")
+UserController{
+	@autowired
+	UserService UserService;
+	@getMapping("/getProductPurchaseMoreThan2")
+	public List<String> getProductPurchaseMoreThan2(){
+	
+		return  UserService.getProductPurchaseMoreThan2();
+	}
+}
+
+@controllerAdvice
+class GlobalExceptionHandler{
+
+	@ExceptionHandler(CustomException.class)
+	public ResponseEntity<String> customException(CustomException msg){
+		return ResponseEntity.badRequest().body(msg.getMessage());
+	}
+
+
+}
+
+class CustomException extends RuntimeException{
+	
+	public CustomException(String msg){
+		super(msg);
+	}
+}
+
+
+@service
+UserService{
+	@autowired
+	UserRepo userrepo;
+	
+	@autowired
+	RestTemplate restTemplate;
+	}
+	public List<String> getProductPurchaseMoreThan2(){
+		
+		try {
+		Product[] products= restTemplate.getForObject("localhost:8080/product/getAllProduct",Product[].class);
+		Map<String, Long> groupedByProduct=products.stream().collect(Collectors.groupingBy( g -> g.getname(), Collector.counting()));
+		List<String> usernames=new ArrayList<>();
+		for(Map.Entry<String,Integer> product : groupedByProduct.entrySet()){
+			if(product.getValue() >2){
+			usernames.add(product.getKey());
+			}
+		}
+		}catch(Exception e){
+			
+			throw new CustomException("exception in service "+e.getmessage());
+			
+		}
+		return usernames;
+
+	}
+
+}
+@Entity
+User{
+	@Id
+	private int uId;
+	private String username;
+	private String email;
+
+	// getters // setters
+	
+}
+
+Product{
+	
+	private int pId;
+	private String username;
+	priavte String email;
+	private String productName;
+}
+
+
+
+ProductMicroService
+
+ProductController
+@RestController
+@RequestMapping("/user")
+ProductController{
+	@autowired
+	ProductService productService;
+	@getMapping("/getAllProduct")
+	public List<Product> getAllProduct(){
+		return productService.getAllProduct();
+	}
+}
+@service
+UserService{
+	@autowired
+	ProductRepo productRepo;
+	
+	public List<Product> getAllProducts(){
+	
+		List<Product> products=productRepo.findAll();
+		return products;
+	
+	}
+
+}
+@Entity
+Product{
+	
+	@Id
+	private int pId;
+	private String username;
+	priavte String email;
+	private String productName;
+}

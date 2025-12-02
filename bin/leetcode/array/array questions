@@ -1,0 +1,39 @@
+Find the second largest and second smallest element in an array without sorting.
+
+Remove duplicates from an array (using HashSet or without extra space).
+
+Find the missing number in an array of size N containing numbers 1 to N.
+
+Find the pair of elements whose sum is equal to a target value (Two Sum problem).
+
+Find the intersection of two sorted arrays.
+
+Find the Union of two sorted arrays without duplicates.
+
+Rotate an array by K positions – clockwise or anticlockwise.
+
+Move all zeros to the end while maintaining the order of other elements.
+
+Find the majority element (appears more than N/2 times) – using Moore’s Voting Algorithm.
+
+Find the maximum sum subarray (Kadane’s Algorithm).
+
+Find the length of the longest subarray with sum = K (positive numbers / with negatives).
+
+Find the longest substring / subarray without repeating elements (Sliding Window).
+
+Find the count of subarrays whose sum = K.
+
+Check if an array is a subset of another array (using sorting + binary search or HashSet).
+
+Merge two sorted arrays without extra space (Gap method / In-place merge).
+
+Find duplicates in an array where elements range 0...n-1 (using visited marking / Floyd cycle).
+
+Find the product of array elements except itself (without division).
+
+Sort array of 0s, 1s, and 2s (Dutch National Flag algorithm).
+
+Find the first repeating and first non-repeating element in an array.
+
+Implement cyclic sort and explain scenarios where it’s useful (e.g., missing number, duplicate number).

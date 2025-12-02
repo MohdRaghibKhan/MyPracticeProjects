@@ -1,0 +1,68 @@
+When to Use Runnable :-
+
+Multiple Inheritance: If your class needs to extend another class in addition to having the ability to be executed by a thread,
+you should use Runnable. Java supports single inheritance, so a class can only extend one class. By implementing Runnable,
+you can separate the task to be executed from the thread management.
+
+Separation of Concerns: Using Runnable allows you to separate the task logic from the thread control. This can make your code more modular and 
+easier to manage. when we talking about separation of task logic from thread control means keeping the code that defines actual logic of thread 
+separated from how tread is executing & running 
+
+Task Logic: The actual work or computation you want the thread to perform.
+Thread Management: How the thread is created and started.
+flexibility-
+
+Using Runnable allows you to use the same task with different thread management strategies (e.g., different threads or thread pools).
+You can pass Runnable instances to an ExecutorService for more control over thread execution and resource management.
+Reuse and Composition: By implementing Runnable, you can pass the same Runnable instance to different Thread instances or use it with other
+concurrent utilities, such as executors.
+
+Enhanced Flexibility: With Runnable, you can work with Java's Executor framework (e.g., ExecutorService), which provides more flexible and powerful
+thread management.
+
+When to Use Thread :-
+Simple Use Case: If your task is simple and you don't need to extend any other class, you can extend Thread.
+ This approach is straightforward and easy to implement for simple scenarios.
+ 
+When you extend the Thread class, you can add extra methods and state to your thread class. This approach can be useful if the thread needs
+to maintain specific information or perform additional actions that are tightly coupled with the thread's execution.
+ example -:  CustomThread class 
+
+Custom State:
+
+You can add instance variables to the thread class to keep track of state that is relevant to the thread's operation.
+Additional Methods:
+
+You can define additional methods that are specific to the thread's functionality.
+Tight Coupling:
+
+The state and methods are tightly integrated with the thread’s life cycle, which might be useful if these elements are closely related to the
+ thread’s execution. 
+ 
+ 
+ Summary -: 
+ In modern Java programming, using Runnable with thread pools and the Executor framework is generally preferred for its flexibility and scalability.
+ However, extending Thread can be useful for simple cases or when you want a more direct approach.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
