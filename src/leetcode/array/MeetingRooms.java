@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class MeetingRooms {
 	public static void main(String[] args) {
-		
 		 int[] start = {900, 1000, 1200};
 	     int[] end   = {1030, 1100, 1400};
 	     Arrays.sort(start);
