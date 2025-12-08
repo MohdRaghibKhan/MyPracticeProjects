@@ -1,4 +1,4 @@
-package design_patterns.equals;
+package design_patterns.hashAndEquals;
 class Helper{
 	String name="raghib";
 	@Override

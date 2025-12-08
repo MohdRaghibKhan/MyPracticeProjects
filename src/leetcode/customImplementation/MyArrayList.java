@@ -1,18 +1,23 @@
 package leetcode.customImplementation;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 class MyArrayListMain{
 	public static void main(String[] args) {
 		MyArrayList<Integer>  integers=new MyArrayList<>();
-		integers.add(1);
-		integers.add(2);
-		integers.add(3);
-		integers.add(4);
-		integers.add(5);
 		System.out.println(integers+" "+integers.size());
-		integers.remove(4);
+//		integers.remove(4);
 		System.out.println("Updated size"+integers.size()+" Actual size"+integers.accuiredSpace());
+		List<Integer> integers2=new ArrayList<>();
+		integers2.add(1);
+		integers2.add(2);
+		integers2.add(3);
+		for (Integer integer : integers2) {
+			System.out.println(integer);
+			integers2.remove(0);
+		}
 	}
 }
 
@@ -46,12 +51,12 @@ public class MyArrayList<T> {
 	}
 	
 	public T remove(int idx) {
-		if(idx >=size || idx<0) {
+		if (idx >= size || idx < 0) {
 			throw new IndexOutOfBoundsException("Index out of range");
 		}
-		T removedElement=(T) arrObj[idx];
-		for (int i = idx; i < size-1; i++) {
-			arrObj[i]=arrObj[i+1];
+		T removedElement = (T) arrObj[idx];
+		for (int i = idx; i < size - 1; i++) {
+			arrObj[i] = arrObj[i + 1];
 		}
 		size--;
 		return removedElement;
