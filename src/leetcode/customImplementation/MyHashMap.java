@@ -7,9 +7,7 @@ class HashMapMain{
 		myHashMap.put(2, "Mayank");
 		myHashMap.put(3, "Yuvraj");
 		myHashMap.printAll();
-		
 		System.out.println(myHashMap.get(1));
-		
 	}
 }
 

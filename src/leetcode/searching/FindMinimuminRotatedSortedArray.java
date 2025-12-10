@@ -10,16 +10,16 @@ public class FindMinimuminRotatedSortedArray {
 	public static int findMin(int[] arr) {
 		int left=0;
 		int right =arr.length-1;
-		while(right>= left) {
+		while(right > left) {
 		
 //			find mid
 			int mid=left + (right - left)/2;
 			
-			if(arr[mid] > arr[right]) {
-				right=mid;
-			}else {
-				left=mid+1;
-			}
+			if (arr[mid] > arr[right]) {
+	            left = mid + 1;
+	        } else {
+	            right = mid;
+	        }
 		}
 //		System.out.println(min);
         return arr[left];

@@ -16,7 +16,7 @@ class MyArrayListMain{
 		integers2.add(3);
 		for (Integer integer : integers2) {
 			System.out.println(integer);
-			integers2.remove(0);
+			integers2.remove(1);
 		}
 	}
 }

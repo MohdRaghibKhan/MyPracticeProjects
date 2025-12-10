@@ -1,9 +1,48 @@
 package leetcode;
 
+import java.util.Iterator;
+
 public class LongestPalindromicSubstring {
 	public static void main(String[] args) {
 
 		String s = "babad";
+		String subStr1=optimal(s);
+		String subStr2=simple(s);
+
+	}
+
+	private static String simple(String s) {
+		int start=0;
+		int end=0;
+		int max=0;
+		for (int i = 0; i < s.length(); i++) {
+			for (int j = i; j < s.length(); j++) {
+				boolean palidrome = isPalidrome2(s, i, j);
+				if(palidrome && max < (end - start +1)) {
+//					System.out.println(s.substring(start,end+1));
+					max=j-i+1;
+					start=i;
+					end=j;
+				}
+			}
+		}
+		return s.substring(start,end+1);
+	}
+	private static boolean isPalidrome2(String s,int left,int right) {
+		
+		while(left < right) {
+			char charAt = s.charAt(left);
+			char charAt2 = s.charAt(right);
+			if(charAt!=charAt2) {
+				return false;
+			}
+			left++;
+			right--;
+		}
+		return true;
+	}
+
+	private static String optimal(String s) {
 		int start = 0, end = 0;
 		for (int i = 0; i < s.length(); i++) {
 
@@ -20,11 +59,13 @@ public class LongestPalindromicSubstring {
 			}
 		}
 		System.out.println(s.substring(start, end + 1));
+		return s.substring(start, end + 1);
 	}
 
 	private static int expandFromCenter(String s, int left, int right) {
 
-		while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+		while (left >= 0 && right < s.length() 
+			   && s.charAt(left) == s.charAt(right)) {
 			left--;
 			right++;
 		}

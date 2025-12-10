@@ -11,8 +11,6 @@ public class OccurrencesofEachCharacter {
 		Map<Character, Integer> map=new HashMap<>();
 		for (char chr : str.toCharArray()) {
 			map.put(chr, map.getOrDefault(chr, 0)+1);
-			
-			
 		}
 		System.out.println(map);
 	}
