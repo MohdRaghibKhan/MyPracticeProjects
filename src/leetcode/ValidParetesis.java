@@ -11,9 +11,7 @@ public class ValidParetesis {
 //		String  s = "([)]";
 		boolean valid = isValid(s);
 		System.out.println(valid);
-		
-
-		
+				
 	}
 
 	public static boolean isValid(String s) {
@@ -35,7 +33,4 @@ public class ValidParetesis {
 		}
 		return characters.isEmpty();
 	}
-	
-	
-	
 }

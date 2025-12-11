@@ -22,6 +22,11 @@ public class rough {
 				start=left;
 			}
 		}
+		String s1 = "raghib";
+		String s2 = s1;
+
+		s1 = s1 + " khan";
+		System.out.println(s1 +" "+s2);
 		System.out.println(str.substring(start,end));
 	}
 }
